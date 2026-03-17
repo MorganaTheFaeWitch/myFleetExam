@@ -1,0 +1,39 @@
+{
+  "fleet": [
+    {
+      "@division" : ["Ute", "NSW"],
+      "registration" : "001A",
+      "kilometers travelled": "465187"
+    },
+    {
+      "@division" : ["Ute", "NSW"],
+      "registration" : "002A",
+      "kilometers travelled": "54688"
+    },
+    {
+      "@division" : ["Ute", "NSW"],
+      "registration" : "003A",
+      "kilometers travelled": "146584"
+    },
+    {
+      "@division" : ["Luxury", "QLD"],
+      "registration" : "001B",
+      "kilometers travelled": "478552"
+    },
+    {
+      "@division" : ["Luxury", "VIC"],
+      "registration" : "002B",
+      "kilometers travelled": "74545"
+    },
+    {
+      "@division" : ["Luxury", "NSW"],
+      "registration" : "003B",
+      "kilometers travelled": "845202"
+    },
+    {
+      "@division" : ["Service", "NSW"],
+      "registration" : "001C",
+      "kilometers travelled": "10012"
+    }
+  ]
+}
