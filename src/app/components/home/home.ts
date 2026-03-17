@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {MatCard, MatCardContent, MatCardHeader} from '@angular/material/card';
 import {serverConnector} from '../../services/serverConnector';
 import {NgForOf} from '@angular/common';
@@ -21,14 +21,18 @@ import {DateAdapter} from '@angular/material/core';
   styleUrl: './home.css',
 })
 
-export class Home implements OnInit {
+export class Home implements OnInit, AfterViewInit {
     private svr = serverConnector;  //initalising the server connector
     public data = this.svr.serverGetter(); //grabbing the data from the "server"
     public totalDistance = 0;
+    public divisions : Array<string> = []; // this wasent used in the end
 
     ngOnInit() {
       // this.divisions = this.getDivisions(this.data);
       this.totalDistance = this.caculateKM("");
+    }
+    ngAfterViewInit() {
+      //console.log(this.divisions = this.getDivisions(this.data));
     }
 
     // caculates the distance traveled for the fleet or division, it should be caculateKM(selected : string?) to allow for null inputs rather than always expecting a string
@@ -59,7 +63,11 @@ export class Home implements OnInit {
       // return divisions;
       //console.log(json.filter((obj: { id: any; }, index: any, self: any[]) => index === self.findIndex((t) => t.id === obj.id)));
       // this was found on this GeeksForGeeks article, https://www.geeksforgeeks.org/javascript/how-to-get-distinct-values-from-an-array-of-objects-in-javascript/
-      // @ts-ignore
-      return Array.from(new Set(json.map(obj => JSON.stringify(obj)))).map(e => JSON.parse(e));
+      let rawdivs = json.filter((obj: { division: any; }, index: any, self: { division: any; }[]) => index === self.findIndex((t: { division: any; }) => t.division === obj.division));
+      let divisions = [];
+      for (let i = 0; i < rawdivs.length; i++) {
+        divisions.push(rawdivs[i].division);
+      }
+      return divisions;
     }
 }
