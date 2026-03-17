@@ -1,39 +1,39 @@
 {
   "fleet": [
     {
-      "@division" : ["Ute", "NSW"],
+      "@division" : "Ute",
       "registration" : "001A",
-      "kilometers travelled": "465187"
+      "kilometers_travelled": "465187"
     },
     {
-      "@division" : ["Ute", "NSW"],
+      "@division" : "Ute",
       "registration" : "002A",
-      "kilometers travelled": "54688"
+      "kilometers_travelled": "54688"
     },
     {
-      "@division" : ["Ute", "NSW"],
+      "@division" : "Ute",
       "registration" : "003A",
-      "kilometers travelled": "146584"
+      "kilometers_travelled": "146584"
     },
     {
-      "@division" : ["Luxury", "QLD"],
+      "@division" : "Luxury",
       "registration" : "001B",
-      "kilometers travelled": "478552"
+      "kilometers_travelled": "478552"
     },
     {
-      "@division" : ["Luxury", "VIC"],
+      "@division" : "Luxury",
       "registration" : "002B",
-      "kilometers travelled": "74545"
+      "kilometers_travelled": "74545"
     },
     {
-      "@division" : ["Luxury", "NSW"],
+      "@division" : "Luxury",
       "registration" : "003B",
-      "kilometers travelled": "845202"
+      "kilometers_travelled": "845202"
     },
     {
-      "@division" : ["Service", "NSW"],
+      "@division" : "Service",
       "registration" : "001C",
-      "kilometers travelled": "10012"
+      "kilometers_travelled": "10012"
     }
   ]
 }

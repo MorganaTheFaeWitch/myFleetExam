@@ -3,7 +3,8 @@
 import * as jsonData from '../testFiles/testData.json'
 
 export class serverConnector {
-  serverGetter(){
-    return jsonData;
+
+  static serverGetter() {
+    return jsonData
   }
 }

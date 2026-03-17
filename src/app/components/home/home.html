@@ -1,5 +1,16 @@
-<div id="page" *ngFor="">
-  <mat-card>
+<div id="controlls">
+  <mat-form-field>
+    <mat-label>select division</mat-label>
+    <mat-select [(value)]="selected" >
+      <option>
 
+      </option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div id="page" *ngFor="let car of data.fleet">
+  <mat-card>
+    {{car.registration}}
   </mat-card>
 </div>
