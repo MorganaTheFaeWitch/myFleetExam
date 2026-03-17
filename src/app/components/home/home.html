@@ -1,16 +1,18 @@
 <mat-card>
-  Total Traveled: {{totalDistance}}
+  Total distance Traveled for the fleet: {{totalDistance}} <!--this techiclly can be recaculated an displayed at anytime however for the timebeing it is OnInnit-->
 </mat-card>
+<!-- This will loop for each entry in the divisions array within the test file. each loop will re-caculate and display the total kms for that division-->
 <mat-card *ngFor="let divis of data.divisions">
-  {{divis.title}} travel time: {{caculateKM(divis.title)}}
+  Distance traveled for {{divis.title}} division: {{caculateKM(divis.title)}}
 </mat-card>
+<!--the div is only to controll the looping, if more control was required, it can be added to the divs with *ngIf()-->
 <div id="page" *ngFor="let car of data.fleet">
   <mat-card>
     <mat-card-header>
-      {{car.registration}}
+      Rego: {{car.registration}}
     </mat-card-header>
     <mat-card-content>
-      Total Traveled: {{car.kilometers_travelled}} <br>
+      Total Traveled: {{car.kilometers_travelled}} <br> <!-- took me a while to realise /n didnt work in html xD-->
       Division: {{car.division}}
     </mat-card-content>
   </mat-card>

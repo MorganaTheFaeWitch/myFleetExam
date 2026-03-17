@@ -31,6 +31,8 @@ export class Home implements OnInit {
       this.totalDistance = this.caculateKM("");
     }
 
+    // caculates the distance traveled for the fleet or division, it should be caculateKM(selected : string?) to allow for null inputs rather than always expecting a string
+    // however I only realised after, and adding extra comments
     public caculateKM(selected : string){
       let total = 0;
       for (let i = 0; i < this.data.fleet.length; i++) {
@@ -41,7 +43,9 @@ export class Home implements OnInit {
       return total;
     }
 
-
+    // this was never actually used, the idea was to scrape the divisions from the fleet itself without requiring a discrete array for divisions,
+    // however, i couldent determin if this was breaking or the dropdown was, so this was the first to be scrapped, I do believe it would work tho,
+    // its just untested
     private getDivisions = (json: any) => {
       // let lookup = {};
       // let dict = [];
@@ -54,8 +58,8 @@ export class Home implements OnInit {
       //   }
       // return divisions;
       //console.log(json.filter((obj: { id: any; }, index: any, self: any[]) => index === self.findIndex((t) => t.id === obj.id)));
+      // this was found on this GeeksForGeeks article, https://www.geeksforgeeks.org/javascript/how-to-get-distinct-values-from-an-array-of-objects-in-javascript/
       // @ts-ignore
       return Array.from(new Set(json.map(obj => JSON.stringify(obj)))).map(e => JSON.parse(e));
     }
-  protected readonly DateAdapter = DateAdapter;
 }
