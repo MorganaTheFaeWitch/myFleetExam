@@ -1,37 +1,48 @@
 {
+  "divisions" : [
+    {
+      "title": "Ute"
+    },
+    {
+      "title": "Luxury"
+    },
+    {
+      "title" : "Service"
+    }
+  ],
   "fleet": [
     {
-      "@division" : "Ute",
+      "division" : "Ute",
       "registration" : "001A",
       "kilometers_travelled": "465187"
     },
     {
-      "@division" : "Ute",
+      "division" : "Ute",
       "registration" : "002A",
       "kilometers_travelled": "54688"
     },
     {
-      "@division" : "Ute",
+      "division" : "Ute",
       "registration" : "003A",
       "kilometers_travelled": "146584"
     },
     {
-      "@division" : "Luxury",
+      "division" : "Luxury",
       "registration" : "001B",
       "kilometers_travelled": "478552"
     },
     {
-      "@division" : "Luxury",
+      "division" : "Luxury",
       "registration" : "002B",
       "kilometers_travelled": "74545"
     },
     {
-      "@division" : "Luxury",
+      "division" : "Luxury",
       "registration" : "003B",
       "kilometers_travelled": "845202"
     },
     {
-      "@division" : "Service",
+      "division" : "Service",
       "registration" : "001C",
       "kilometers_travelled": "10012"
     }

@@ -1,16 +1,17 @@
-<div id="controlls">
-  <mat-form-field>
-    <mat-label>select division</mat-label>
-    <mat-select [(value)]="selected" >
-      <option>
-
-      </option>
-    </mat-select>
-  </mat-form-field>
-</div>
-
+<mat-card>
+  Total Traveled: {{totalDistance}}
+</mat-card>
+<mat-card *ngFor="let divis of data.divisions">
+  {{divis.title}} travel time: {{caculateKM(divis.title)}}
+</mat-card>
 <div id="page" *ngFor="let car of data.fleet">
   <mat-card>
-    {{car.registration}}
+    <mat-card-header>
+      {{car.registration}}
+    </mat-card-header>
+    <mat-card-content>
+      Total Traveled: {{car.kilometers_travelled}} <br>
+      Division: {{car.division}}
+    </mat-card-content>
   </mat-card>
 </div>
