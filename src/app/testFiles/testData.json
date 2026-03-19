@@ -45,6 +45,11 @@
       "division" : "Service",
       "registration" : "001C",
       "kilometers_travelled": "10012"
+    },
+    {
+      "division" : "Service",
+      "registration" : "002C",
+      "kilometers_travelled": "20"
     }
   ]
 }

@@ -11,9 +11,14 @@
     <mat-card-header>
       Rego: {{car.registration}}
     </mat-card-header>
-    <mat-card-content>
-      Total Traveled: {{car.kilometers_travelled}} <br> <!-- took me a while to realise /n didnt work in html-->
-      Division: {{car.division}}
+    <mat-card-content style="display: flex">
+      <div id="vehicle-location" style="width: 200px; height: 200px; border-style: solid; align-content: center; text-align: center">
+        imagine a map pin
+      </div>
+      <div id="vehicle-data" style="padding-left: 20px">
+        Total Traveled: {{car.kilometers_travelled}}km<br> <!-- took me a while to realise /n didnt work in html-->
+        Division: {{car.division}}
+      </div>
     </mat-card-content>
   </mat-card>
 </div>
