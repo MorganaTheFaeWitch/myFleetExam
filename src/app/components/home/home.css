@@ -1,0 +1,9 @@
+#left-section{
+  position: fixed;
+  float: left;
+  width: 25%
+}
+#right-section{
+  float: right;
+  width: 70%
+}

@@ -3,8 +3,11 @@ import {MatCard, MatCardContent, MatCardHeader} from '@angular/material/card';
 import {serverConnector} from '../../services/serverConnector';
 import {NgForOf} from '@angular/common';
 import {MatFormField, MatLabel} from '@angular/material/input';
-import {MatSelect} from '@angular/material/select';
+import {MatOption, MatSelect} from '@angular/material/select';
 import {DateAdapter} from '@angular/material/core';
+import {MatMenu} from '@angular/material/menu';
+import {MatCheckbox} from '@angular/material/checkbox';
+import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +19,10 @@ import {DateAdapter} from '@angular/material/core';
     MatSelect,
     MatCardHeader,
     MatCardContent,
+    MatMenu,
+    MatOption,
+    MatCheckbox,
+    ReactiveFormsModule,
   ],
   templateUrl: './home.html',
   styleUrl: './home.css',
@@ -27,10 +34,14 @@ export class Home implements OnInit {
     public totalDistance = 0;
     public divisions : Array<string> = []; // this wasent used in the end
 
+    // @ts-ignore
+    public selectedDivisions: FormControl<Array<string> | null>;
+
     ngOnInit() {
       // this.divisions = this.getDivisions(this.data);
       this.totalDistance = this.caculateKM("");
       this.divisions = this.getDivisions(this.data);
+      this.selectedDivisions = new FormControl(this.divisions);
     }
 
     // caculates the distance traveled for the fleet or division, it should be caculateKM(selected : string?) to allow for null inputs rather than always expecting a string
@@ -44,6 +55,16 @@ export class Home implements OnInit {
       }
       return total;
     }
+
+    // public updateDivisions(division: string){
+    //   let loc = this.selectedDivisions.indexOf(division);
+    //   if(loc == -1){
+    //     this.selectedDivisions.push(division);
+    //   }
+    //   else{
+    //     this.selectedDivisions.splice(loc, 1);
+    //   }
+    // }
 
     // this was never actually used, the idea was to scrape the divisions from the fleet itself without requiring a discrete array for divisions,
     // however, i couldent determin if this was breaking or the dropdown was, so this was the first to be scrapped, I do believe it would work tho,

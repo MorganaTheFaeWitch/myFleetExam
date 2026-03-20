@@ -1,24 +1,57 @@
-<mat-card>
-  Total distance Traveled for the fleet: {{totalDistance}} <!--this techiclly can be recaculated an displayed at anytime however for the timebeing it is OnInnit-->
-</mat-card>
-<!-- This will loop for each entry in the divisions array within the test file. each loop will re-caculate and display the total kms for that division-->
-<mat-card *ngFor="let division of divisions">
-  Distance traveled for {{division}} division: {{caculateKM(division)}}
-</mat-card>
-<!--the div is only to controll the looping, if more control was required, it can be added to the divs with *ngIf()-->
-<div id="page" *ngFor="let car of data.fleet">
-  <mat-card>
-    <mat-card-header>
-      Rego: {{car.registration}}
-    </mat-card-header>
-    <mat-card-content style="display: flex">
-      <div id="vehicle-location" style="width: 200px; height: 200px; border-style: solid; align-content: center; text-align: center">
-        imagine a map pin
-      </div>
-      <div id="vehicle-data" style="padding-left: 20px">
-        Total Traveled: {{car.kilometers_travelled}}km<br> <!-- took me a while to realise /n didnt work in html-->
-        Division: {{car.division}}
-      </div>
-    </mat-card-content>
-  </mat-card>
-</div>
+<body>
+
+  <!-- This will loop for each entry in the divisions array within the test file. each loop will re-caculate and display the total kms for that division-->
+  <!--the div is only to controll the looping, if more control was required, it can be added to the divs with *ngIf()-->
+  <div id="left-section">
+    <mat-card>
+      <mat-card-header>
+        <h1>Info and Controls</h1>
+      </mat-card-header>
+      <mat-card-content>
+        <h2>Distances traveled</h2>
+        <p>Total: {{totalDistance}} </p>
+        <p *ngFor="let division of divisions">
+          {{division}} division: {{caculateKM(division)}}
+        </p>
+        <h2>Controls</h2>
+        <mat-form-field>
+          <mat-label>
+            Divisions
+          </mat-label>
+          <mat-select [formControl]="selectedDivisions" multiple>
+            @for (division of divisions; track division){
+              <mat-option [value]="division" >{{division}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div id="right-section">
+    <div id="page" *ngFor="let car of data.fleet" style="padding: 5px;">
+      @if(selectedDivisions.value?.includes(car.division)){
+        <mat-card>
+          <mat-card-header>
+            Rego: {{car.registration}}
+          </mat-card-header>
+          <mat-card-content style="display: flex">
+            <div id="vehicle-location" style="width: 200px; height: 200px; border-style: solid; align-content: center; text-align: center">
+              imagine a map pin
+            </div>
+            <div id="vehicle-data" style="padding-left: 20px">
+              Total Traveled: {{car.kilometers_travelled}}km<br> <!-- took me a while to realise /n didnt work in html-->
+              Division: {{car.division}}
+            </div>
+          </mat-card-content>
+        </mat-card>
+      }
+    </div>
+    @if(selectedDivisions.value?.length == 0){
+      <mat-card>
+        <mat-card-content>
+          <p>No content matched your search</p>
+        </mat-card-content>
+      </mat-card>
+    }
+  </div>
+</body>
